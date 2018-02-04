@@ -6,17 +6,15 @@
 #
 Name     : persistent
 Version  : 4.2.4
-Release  : 6
+Release  : 7
 URL      : http://pypi.debian.net/persistent/persistent-4.2.4.tar.gz
 Source0  : http://pypi.debian.net/persistent/persistent-4.2.4.tar.gz
 Source99 : http://pypi.debian.net/persistent/persistent-4.2.4.tar.gz.asc
 Summary  : Translucent persistent objects
 Group    : Development/Tools
 License  : ZPL-2.1
+Requires: persistent-python3
 Requires: persistent-python
-Requires: Sphinx
-Requires: coverage
-Requires: nose
 Requires: zope.interface
 BuildRequires : pbr
 BuildRequires : pip
@@ -31,7 +29,6 @@ BuildRequires : virtualenv
 BuildRequires : zope.interface
 
 %description
-``persistent``:  automatic persistence for Python objects
 =========================================================
 
 %package dev
@@ -46,30 +43,40 @@ dev components for the persistent package.
 %package python
 Summary: python components for the persistent package.
 Group: Default
+Requires: persistent-python3
 
 %description python
 python components for the persistent package.
+
+
+%package python3
+Summary: python3 components for the persistent package.
+Group: Default
+Requires: python3-core
+
+%description python3
+python3 components for the persistent package.
 
 
 %prep
 %setup -q -n persistent-4.2.4
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1490409041
-python2 setup.py build -b py2
+export SOURCE_DATE_EPOCH=1517764445
 python3 setup.py build -b py3
 
 %check
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-PYTHONPATH=%{buildroot}/usr/lib/python3.6/site-packages python3 setup.py test
+PYTHONPATH=%{buildroot}/usr/lib/python3.6/site-packages python3 setup.py test || :
 %install
-export SOURCE_DATE_EPOCH=1490409041
 rm -rf %{buildroot}
-python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
-python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+python3 -tt setup.py build -b py3 install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
@@ -79,12 +86,12 @@ echo ----[ mark ]----
 
 %files dev
 %defattr(-,root,root,-)
-/usr/include/python2.7/persistent/cPersistence.h
-/usr/include/python2.7/persistent/ring.h
 /usr/include/python3.6m/persistent/cPersistence.h
 /usr/include/python3.6m/persistent/ring.h
 
 %files python
 %defattr(-,root,root,-)
-/usr/lib/python2*/*
+
+%files python3
+%defattr(-,root,root,-)
 /usr/lib/python3*/*
