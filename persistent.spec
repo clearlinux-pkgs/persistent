@@ -6,7 +6,7 @@
 #
 Name     : persistent
 Version  : 4.2.4
-Release  : 11
+Release  : 12
 URL      : http://pypi.debian.net/persistent/persistent-4.2.4.tar.gz
 Source0  : http://pypi.debian.net/persistent/persistent-4.2.4.tar.gz
 Source99 : http://pypi.debian.net/persistent/persistent-4.2.4.tar.gz.asc
@@ -14,14 +14,17 @@ Summary  : Translucent persistent objects
 Group    : Development/Tools
 License  : ZPL-2.1
 Requires: persistent-python3
+Requires: persistent-license
 Requires: persistent-python
+Requires: Sphinx
+Requires: coverage
+Requires: nose
 Requires: zope.interface
 BuildRequires : pbr
 BuildRequires : pip
 BuildRequires : pluggy
 BuildRequires : py-python
 BuildRequires : pytest
-
 BuildRequires : python3-dev
 BuildRequires : setuptools
 BuildRequires : tox
@@ -38,6 +41,14 @@ Provides: persistent-devel
 
 %description dev
 dev components for the persistent package.
+
+
+%package license
+Summary: license components for the persistent package.
+Group: Default
+
+%description license
+license components for the persistent package.
 
 
 %package python
@@ -66,16 +77,18 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1517764445
+export SOURCE_DATE_EPOCH=1530328794
 python3 setup.py build -b py3
 
 %check
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-PYTHONPATH=%{buildroot}/usr/lib/python3.6/site-packages python3 setup.py test || :
+PYTHONPATH=%{buildroot}/usr/lib/python3.7/site-packages python3 setup.py test || :
 %install
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/doc/persistent
+cp LICENSE.txt %{buildroot}/usr/share/doc/persistent/LICENSE.txt
 python3 -tt setup.py build -b py3 install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -86,8 +99,12 @@ echo ----[ mark ]----
 
 %files dev
 %defattr(-,root,root,-)
-/usr/include/python3.6m/persistent/cPersistence.h
-/usr/include/python3.6m/persistent/ring.h
+/usr/include/python3.7m/persistent/cPersistence.h
+/usr/include/python3.7m/persistent/ring.h
+
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/persistent/LICENSE.txt
 
 %files python
 %defattr(-,root,root,-)
