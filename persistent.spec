@@ -6,7 +6,7 @@
 #
 Name     : persistent
 Version  : 4.2.4
-Release  : 10
+Release  : 11
 URL      : http://pypi.debian.net/persistent/persistent-4.2.4.tar.gz
 Source0  : http://pypi.debian.net/persistent/persistent-4.2.4.tar.gz
 Source99 : http://pypi.debian.net/persistent/persistent-4.2.4.tar.gz.asc
