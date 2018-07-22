@@ -4,7 +4,7 @@
 #
 Name     : persistent
 Version  : 4.2.4.2
-Release  : 17
+Release  : 18
 URL      : https://files.pythonhosted.org/packages/c8/a7/42e650ec8a789fde5b8c734d65eb237a1a361d5c82d22f0c22e98e897cca/persistent-4.2.4.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/c8/a7/42e650ec8a789fde5b8c734d65eb237a1a361d5c82d22f0c22e98e897cca/persistent-4.2.4.2.tar.gz
 Summary  : Translucent persistent objects
@@ -75,7 +75,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1532242105
+export SOURCE_DATE_EPOCH=1532273300
 python3 setup.py build -b py3
 
 %check
