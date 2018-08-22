@@ -1,5 +1,5 @@
 PKG_NAME := persistent
-URL = https://files.pythonhosted.org/packages/13/fe/383aba90aca912f074736c46c36fbb873b0165464db257c30d8298c90325/persistent-4.3.0.tar.gz
+URL = https://files.pythonhosted.org/packages/ec/cf/2d9aed78f3f5a17f3ededb733bbadfaccf02c081ee405103db4f497123c7/persistent-4.4.0.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common

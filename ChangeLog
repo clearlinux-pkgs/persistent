@@ -1,6 +1,56 @@
 ``persistent`` Changelog
 ========================
 
+4.4.0 (2018-08-22)
+------------------
+
+- Use unsigned constants when doing arithmetic on C timestamps,
+  possibly avoiding some overflow issues with some compilers or
+  compiler settings. See `issue 86
+  <https://github.com/zopefoundation/persistent/issues/86>`_.
+
+- Change the default representation of ``Persistent`` objects to
+  include the representation of their OID and jar, if set. Also add
+  the ability for subclasses to implement ``_p_repr()`` instead of
+  overriding ``__repr__`` for better exception handling. See `issue 11
+  <https://github.com/zopefoundation/persistent/issues/11>`_.
+
+- Reach and maintain 100% test coverage.
+
+- Simplify ``__init__.py``, including removal of an attempted legacy
+  import of ``persistent.TimeStamp``. See `PR 80
+  <https://github.com/zopefoundation/persistent/pull/80>`_.
+
+- Add support for Python 3.7 and drop support for Python 3.3.
+
+- Build the CFFI modules (used on PyPy or when PURE_PYTHON is set) `at
+  installation or wheel building time
+  <https://cffi.readthedocs.io/en/latest/cdef.html#ffibuilder-set-source-preparing-out-of-line-modules>`_
+  when CFFI is available. This replaces `the deprecated way
+  <https://cffi.readthedocs.io/en/latest/overview.html#abi-versus-api>`_
+  of building them at import time. If binary wheels are distributed,
+  it eliminates the need to have a functioning C compiler to use PyPy.
+  See `issue 75
+  <https://github.com/zopefoundation/persistent/issues/75>`_.
+
+- Fix deleting the ``_p_oid`` of a pure-Python persistent object when
+  it is in a cache.
+
+- Fix deleting special (``_p``) attributes of a pure-Python persistent
+  object that overrides ``__delattr__`` and correctly calls ``_p_delattr``.
+
+- Remove some internal compatibility shims that are no longer
+  necessary. See `PR 82 <https://github.com/zopefoundation/persistent/pull/82>`_.
+
+- Make the return value of ``TimeStamp.second()`` consistent across C
+  and Python implementations when the ``TimeStamp`` was created from 6
+  arguments with floating point seconds. Also make it match across
+  trips through ``TimeStamp.raw()``. Previously, the C version could
+  initially have erroneous rounding and too much false precision,
+  while the Python version could have too much precision. The raw/repr
+  values have not changed. See `issue 41
+  <https://github.com/zopefoundation/persistent/issues/41>`_.
+
 4.3.0 (2018-07-30)
 ------------------
 
