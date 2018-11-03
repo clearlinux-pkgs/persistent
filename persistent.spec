@@ -4,7 +4,7 @@
 #
 Name     : persistent
 Version  : 4.4.3
-Release  : 24
+Release  : 25
 URL      : https://files.pythonhosted.org/packages/56/a3/b63bc36720b07c7f9c7f448d8fa338dc59633f606c6d4230a4a70f8c8d16/persistent-4.4.3.tar.gz
 Source0  : https://files.pythonhosted.org/packages/56/a3/b63bc36720b07c7f9c7f448d8fa338dc59633f606c6d4230a4a70f8c8d16/persistent-4.4.3.tar.gz
 Summary  : Translucent persistent objects
@@ -13,8 +13,6 @@ License  : ZPL-2.1
 Requires: persistent-license = %{version}-%{release}
 Requires: persistent-python = %{version}-%{release}
 Requires: persistent-python3 = %{version}-%{release}
-Requires: Sphinx
-Requires: repoze.sphinx.autointerface
 Requires: zope.interface
 BuildRequires : buildreq-distutils3
 BuildRequires : pluggy
@@ -71,7 +69,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1540217292
+export SOURCE_DATE_EPOCH=1541271544
 python3 setup.py build
 
 %install
