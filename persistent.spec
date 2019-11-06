@@ -4,7 +4,7 @@
 #
 Name     : persistent
 Version  : 4.5.1
-Release  : 30
+Release  : 32
 URL      : https://files.pythonhosted.org/packages/da/4d/2ec9bf8f6b4089ca575be54f160959aca3d3b6985bc04d9c33b5747a3096/persistent-4.5.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/da/4d/2ec9bf8f6b4089ca575be54f160959aca3d3b6985bc04d9c33b5747a3096/persistent-4.5.1.tar.gz
 Summary  : Translucent persistent objects
@@ -26,14 +26,12 @@ BuildRequires : virtualenv
 BuildRequires : zope.interface
 
 %description
-``persistent``:  automatic persistence for Python objects
 =========================================================
 
 %package dev
 Summary: dev components for the persistent package.
 Group: Development
 Provides: persistent-devel = %{version}-%{release}
-Requires: persistent = %{version}-%{release}
 Requires: persistent = %{version}-%{release}
 
 %description dev
@@ -68,14 +66,14 @@ python3 components for the persistent package.
 
 %prep
 %setup -q -n persistent-4.5.1
+cd %{_builddir}/persistent-4.5.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1573051850
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1574289515
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -102,8 +100,8 @@ echo ----[ mark ]----
 
 %files dev
 %defattr(-,root,root,-)
-/usr/include/python3.7m/persistent/cPersistence.h
-/usr/include/python3.7m/persistent/ring.h
+/usr/include/python3.8/persistent/cPersistence.h
+/usr/include/python3.8/persistent/ring.h
 
 %files license
 %defattr(0644,root,root,0755)
