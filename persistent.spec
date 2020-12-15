@@ -4,7 +4,7 @@
 #
 Name     : persistent
 Version  : 4.6.4
-Release  : 43
+Release  : 44
 URL      : https://files.pythonhosted.org/packages/d3/bc/3a732d5089a470eb340bc4222dc101666319a04ffa09f7593b246104850c/persistent-4.6.4.tar.gz
 Source0  : https://files.pythonhosted.org/packages/d3/bc/3a732d5089a470eb340bc4222dc101666319a04ffa09f7593b246104850c/persistent-4.6.4.tar.gz
 Summary  : Translucent persistent objects
@@ -26,14 +26,12 @@ BuildRequires : virtualenv
 BuildRequires : zope.interface
 
 %description
-``persistent``:  automatic persistence for Python objects
 =========================================================
 
 %package dev
 Summary: dev components for the persistent package.
 Group: Development
 Provides: persistent-devel = %{version}-%{release}
-Requires: persistent = %{version}-%{release}
 Requires: persistent = %{version}-%{release}
 
 %description dev
@@ -78,15 +76,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1585267524
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1607990602
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
@@ -106,8 +103,8 @@ echo ----[ mark ]----
 
 %files dev
 %defattr(-,root,root,-)
-/usr/include/python3.8/persistent/cPersistence.h
-/usr/include/python3.8/persistent/ring.h
+/usr/include/python3.9/persistent/cPersistence.h
+/usr/include/python3.9/persistent/ring.h
 
 %files license
 %defattr(0644,root,root,0755)
