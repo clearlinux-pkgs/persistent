@@ -4,7 +4,7 @@
 #
 Name     : persistent
 Version  : 4.6.4
-Release  : 45
+Release  : 46
 URL      : https://files.pythonhosted.org/packages/d3/bc/3a732d5089a470eb340bc4222dc101666319a04ffa09f7593b246104850c/persistent-4.6.4.tar.gz
 Source0  : https://files.pythonhosted.org/packages/d3/bc/3a732d5089a470eb340bc4222dc101666319a04ffa09f7593b246104850c/persistent-4.6.4.tar.gz
 Summary  : Translucent persistent objects
@@ -76,7 +76,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1607990602
+export SOURCE_DATE_EPOCH=1607998206
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
