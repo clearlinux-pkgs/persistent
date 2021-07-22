@@ -4,7 +4,7 @@
 #
 Name     : persistent
 Version  : 4.7.0
-Release  : 52
+Release  : 53
 URL      : https://files.pythonhosted.org/packages/63/19/f95ae3d20840823754dacad879d0adf03bb290a2b763c6d9d85b020c0a2d/persistent-4.7.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/63/19/f95ae3d20840823754dacad879d0adf03bb290a2b763c6d9d85b020c0a2d/persistent-4.7.0.tar.gz
 Summary  : Translucent persistent objects
