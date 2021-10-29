@@ -4,7 +4,7 @@
 #
 Name     : persistent
 Version  : 4.7.0
-Release  : 56
+Release  : 57
 URL      : https://files.pythonhosted.org/packages/63/19/f95ae3d20840823754dacad879d0adf03bb290a2b763c6d9d85b020c0a2d/persistent-4.7.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/63/19/f95ae3d20840823754dacad879d0adf03bb290a2b763c6d9d85b020c0a2d/persistent-4.7.0.tar.gz
 Summary  : Translucent persistent objects
@@ -78,15 +78,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1618328919
+export SOURCE_DATE_EPOCH=1635523130
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
-export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
+export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=auto "
+export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=auto "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
@@ -105,8 +105,8 @@ echo ----[ mark ]----
 
 %files dev
 %defattr(-,root,root,-)
-/usr/include/python3.9/persistent/cPersistence.h
-/usr/include/python3.9/persistent/ring.h
+/usr/include/python3.10/persistent/cPersistence.h
+/usr/include/python3.10/persistent/ring.h
 
 %files license
 %defattr(0644,root,root,0755)
